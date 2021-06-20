@@ -84,10 +84,10 @@ Person.deleteMany({ name: "Mary" }, (err, data) => {
 })
 
 //Chain Search Query Helpers to Narrow Search Results
-Person.find({ favoriteFoods: { $all: "burritos" } }) // find all users
+Person.find({ favoriteFoods: { $all: "burritos" } }) // find 
     .limit(2) // limit to Two items
     .sort({ name: 1 }) // sort ascending by name
-    .select({ age: false }) // select firstName only
+    .select("-age") // hide age
     .exec((err, data) => { // execute the query
         if (err) throw err;
         console.log(data);
